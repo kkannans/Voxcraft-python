@@ -84,7 +84,7 @@ class VXA:
 
 
         history = etree.SubElement(simulator, "RecordHistory")
-        etree.SubElement(history, "RecordStepSize").text = str(self.RecordStepSize) #Capture image every 100 time steps
+        etree.SubElement(history, "RecordStepSize").text = str(self.RecordStepSize) # Capture image every 100 time steps
         etree.SubElement(history, "RecordVoxel").text = str(self.RecordVoxel) # Add voxels to the visualization
         etree.SubElement(history, "RecordLink").text = str(self.RecordLink) # Add links to the visualization
         etree.SubElement(history, "RecordFixedVoxels").text = str(self.RecordFixedVoxels) 
