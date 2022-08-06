@@ -2,6 +2,7 @@ import numpy as np
 import os
 from modules.VoxcraftVXA import VXA
 from modules.VoxcraftVXD import VXD
+from modules.generate_quadraped import *
 
 data_path = os.getcwd() + "/data"
 if not os.path.exists(data_path):
@@ -14,11 +15,12 @@ vxa = VXA(EnableExpansion=1, SimTime=5) # pass vxa tags in here
 mat1 = vxa.add_material(RGBA=(255,0,255), E=5e4, RHO=1e4) # returns the material ID
 mat2 = vxa.add_material(RGBA=(255,0,0), E=1e8, RHO=1e4)
 
+
 # Write out the vxa to data/ directory
 base_vxa_path = data_path + "/base.vxa"
 vxa.write(base_vxa_path)
 
-# Create random body array between 0 and maximum material ID
+I_shaped_body = quadraped_from_paper()
 body = np.random.randint(0,mat2+1,size=(5,5,5))
 
 # Generate a VXD file (to configure a single simulation)
